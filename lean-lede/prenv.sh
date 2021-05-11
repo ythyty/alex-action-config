@@ -2,7 +2,11 @@
 
 #sudo swapoff /mnt/swapfile
 
-sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc /etc/mysql /etc/php
+
+docker rmi `docker images -q`
+echo "Deleting files, please wait ..."
+
 # docker container stop $(docker container ls -a -q)
 docker system prune --all --force --volumns
 # sudo -E apt-get -qq -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* docker*
